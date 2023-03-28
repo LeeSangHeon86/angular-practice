@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { UiSidenavComponent } from './app-common/component/ui-sidenav/ui-sidenav.component';
 
 @Component({
@@ -10,7 +10,7 @@ export class AppComponent {
     @ViewChild('sideNav') sideNav!: UiSidenavComponent;
     isSideOpen = false;
 
-    sideOpen($event: boolean): void {
+    sideOpen(): void {
         this.isSideOpen = !this.isSideOpen;
         this.sideNav.openSideNav(this.isSideOpen);
     }
