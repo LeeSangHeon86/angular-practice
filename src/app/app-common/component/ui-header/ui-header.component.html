@@ -1,0 +1,22 @@
+<div class="ui-header">
+    <div class="ui-header-title">
+        <button mat-icon-button color="primary" (click)="openSideNav()">
+            <mat-icon class="white-icon">menu</mat-icon>
+        </button>
+        <div class="header-title">Angular Practice</div>
+    </div>
+
+    <button mat-mini-fab color="primary" class="header-icon"
+            [matMenuTriggerFor]="menu">
+        <mat-icon>home</mat-icon>
+    </button>
+
+    <mat-menu class="header-list" #menu>
+        <ng-container *ngFor="let item of headerPopupList">
+            <button mat-menu-item>
+                <mat-icon>{{item.icon}}</mat-icon>
+                <span>{{item.title}}</span>
+            </button>
+        </ng-container>
+    </mat-menu>
+</div>
