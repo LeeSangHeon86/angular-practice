@@ -13,7 +13,7 @@
 
     <mat-menu class="header-list" #menu>
         <ng-container *ngFor="let item of headerPopupList">
-            <button mat-menu-item>
+            <button mat-menu-item [routerLink]="item.path">
                 <mat-icon>{{item.icon}}</mat-icon>
                 <span>{{item.title}}</span>
             </button>
