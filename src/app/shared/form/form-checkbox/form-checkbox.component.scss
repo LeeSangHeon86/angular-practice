@@ -1,0 +1,30 @@
+@use "~src/scss/ui" as value;
+
+:host {
+    .checkbox-wrapper{
+        display: flex;
+        align-items: center;
+        gap:8px;
+        cursor: pointer;
+    }
+
+    .un-check {
+        width: 16px;
+        height: 16px;
+        border-radius: 4px;
+        border : 1px solid #ddd;
+    }
+
+    .check {
+        border: 0;
+        background: value.$main-blue url("~src/assets/svg/check-on.svg") no-repeat center center;
+    }
+
+    .checkbox-title {
+        color : value.$font-light-black;
+
+        &.active {
+            color : value.$font-focus-black
+        }
+    }
+}

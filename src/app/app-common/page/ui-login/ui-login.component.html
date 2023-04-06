@@ -1,6 +1,58 @@
 <div class="login-page">
     <div class="login-wrapper">
+
         <div class="login-main-title">로그인</div>
 
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div class="input-wrapper">
+                <div class="input-field">
+                    <mat-icon class="opacity-light">account_circle</mat-icon>
+                    <input class="input-text" type="text" placeholder="아이디"
+                           formControlName="loginId" spellcheck="false">
+                    <mat-icon *ngIf="loginForm.value.loginId !== ''"
+                              class="btn_clear opacity-light pointer" (click)="clearInput('loginId')">
+                        highlight_off
+                    </mat-icon>
+                </div>
+                <div class="input-field">
+                    <mat-icon class="opacity-light">lock</mat-icon>
+                    <input class="input-text" type="password" placeholder="비밀번호"
+                           formControlName="password" spellcheck="false">
+                    <mat-icon *ngIf="loginForm.value.password !== ''"
+                              class="btn_clear opacity-light pointer" (click)="clearInput('password')">
+                        highlight_off
+                    </mat-icon>
+                </div>
+            </div>
+
+
+            <div class="remember-wrapper">
+                <app-form-checkbox [label]="'아이디 기억하기'"></app-form-checkbox>
+            </div>
+
+            <ng-container *ngIf="loginId && loginId.invalid && (loginId.dirty || loginId.touched)">
+                <div class="msg_alert" *ngIf="loginId.errors?.['required']">
+                    아이디를 입력해주세요.
+                </div>
+                <div class="msg_alert" *ngIf="loginId.errors?.['engAndNum']">
+                    아이디는 영문과 숫자를 조합하여 4~6자리 입력해주세요.
+                </div>
+            </ng-container>
+            <ng-container *ngIf="password && password.invalid && (password.dirty || password.touched)">
+                <div class="msg_alert" *ngIf="password.errors?.['required']">
+                    비밀번호를 입력해주세요.
+                </div>
+                <div class="msg_alert" *ngIf="password.errors?.['engAndNum']">
+                    비밀번호는 영문과 숫자를 조합하여 4~6자리 입력해주세요.
+                </div>
+            </ng-container>
+
+            <button type="submit" class="login-button pointer">로그인</button>
+        </form>
+        <ul class="etc-wrap">
+            <li class="etc-item pointer">비밀번호 찾기</li>
+            <li class="etc-item pointer">아이디 찾기</li>
+            <li class="etc-item pointer">회원가입</li>
+        </ul>
     </div>
 </div>

@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import routerUrl from '../../../shared/routerUrl';
+import routerUrl from '../../../data/routerUrl';
 
 @Component({
     selector: 'app-ui-header',
