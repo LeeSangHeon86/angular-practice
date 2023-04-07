@@ -8,9 +8,10 @@ import { UiSidenavComponent } from './component/ui-sidenav/ui-sidenav.component'
 import { UiLoginComponent } from './page/ui-login/ui-login.component';
 import { FormModule } from '../shared/form/form.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { UiLoginAct1Component } from './page/ui-login-act1/ui-login-act1.component';
 
 @NgModule({
-    declarations: [UiHeaderComponent, UiSidenavComponent, UiLoginComponent],
+    declarations: [UiHeaderComponent, UiSidenavComponent, UiLoginComponent, UiLoginAct1Component],
     imports: [
         CommonModule,
         AppCommonRoutingModule,

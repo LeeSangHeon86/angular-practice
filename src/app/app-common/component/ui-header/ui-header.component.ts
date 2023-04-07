@@ -15,6 +15,11 @@ export class UiHeaderComponent implements OnInit {
             icon: 'subdirectory_arrow_right',
             path: routerUrl.user.login,
         },
+        {
+            title: '로그인_ACT1',
+            icon: 'subdirectory_arrow_right',
+            path: routerUrl.user.login_act1,
+        },
         { title: '로그아웃', icon: 'directions_run' },
         { title: '마이페이지', icon: 'person_pin' },
     ];

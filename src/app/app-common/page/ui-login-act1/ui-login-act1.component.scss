@@ -1,0 +1,129 @@
+a@use "~src/scss/ui" as value;
+
+:host {
+    .login-page {
+        height: calc(100vh - 80px);
+        background-color: value.$background-gray;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .login-wrapper {
+        width: 500px;
+        background-color: #fff;
+        border-radius: 16px;
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        padding: 60px;
+        margin: 0 10px;
+
+        .login-main-title {
+            font-size: 36px;
+            line-height: 36px;
+            font-weight: 600;
+            color: black;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .input-wrapper {
+            border: 1px solid value.$border-gray;
+            border-radius: 12px;
+            height: 100px;
+
+            .input-field {
+                height: calc((100% - 1px) / 2);
+                padding: 0 12px;
+                display: flex;
+                align-items: center;
+                gap: 4px;
+                position: relative;
+
+                &:first-child {
+                    border-bottom: 1px solid value.$border-gray;
+                }
+
+                .input-text {
+                    width: 100%;
+                    border: 0;
+                    font-size: 16px;
+                    margin-top: 3px;
+                    color: value.$font-black;
+                    padding-right : 24px;
+
+                    &:focus {
+                        outline: none;
+                    }
+                }
+
+                .btn_clear {
+                    position: absolute;
+                    right: 10px;
+                    top:50%;
+                    transform: translateY(-50%);
+                }
+            }
+        }
+
+        .remember-wrapper {
+            display: flex;
+            margin: 10px 0 20px;
+        }
+
+        .login-button {
+            width: 100%;
+            background: value.$main-blue;
+            color: #fff;
+            border-radius: 6px;
+            padding: 13px 0;
+            text-align: center;
+            border: 1px solid rgba(0, 0, 0, .15);
+
+            &:hover {
+                opacity: 0.8;
+            }
+        }
+
+        .etc-wrap {
+            list-style: none;
+            text-align: center;
+            padding: 0;
+
+            .etc-item {
+                display: inline-block;
+                position: relative;
+                padding-left: 20px;
+                color : value.$font-light-black;
+
+                &:first-child {
+                    padding: 0;
+                }
+
+                &:nth-child(n+2):before {
+                    content: '';
+                    position: absolute;
+                    left: 10px;
+                    top: 3px;
+                    width: 1px;
+                    height: 14px;
+                    border-radius: 0.5px;
+                    background-color: #dadada;
+                }
+
+                &:hover {
+                    color : value.$font-focus-black;
+                }
+            }
+        }
+    }
+
+    .opacity-light {
+        opacity: 0.3;
+    }
+
+    .msg_alert{
+        color : red;
+        margin-bottom : 8px;
+    }
+}
