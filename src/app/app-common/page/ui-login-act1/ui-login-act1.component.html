@@ -6,16 +6,16 @@
         <div class="input-wrapper">
             <div class="input-field">
                 <mat-icon class="opacity-light">account_circle</mat-icon>
-                <input class="input-text" type="text" placeholder="아이디"
-                       formControlName="loginId" spellcheck="false">
+                <input class="input-text" type="text" placeholder="아이디" name="loginId"
+                       spellcheck="false" [formControl]="loginIdForm">
                 <mat-icon class="btn_clear opacity-light pointer">
                     highlight_off
                 </mat-icon>
             </div>
             <div class="input-field">
                 <mat-icon class="opacity-light">lock</mat-icon>
-                <input class="input-text" type="password" placeholder="비밀번호"
-                       formControlName="password" spellcheck="false">
+                <input class="input-text" type="password" placeholder="비밀번호" name="password"
+                       spellcheck="false" [(ngModel)]="passwordForm">
                 <mat-icon class="btn_clear opacity-light pointer">
                     highlight_off
                 </mat-icon>
