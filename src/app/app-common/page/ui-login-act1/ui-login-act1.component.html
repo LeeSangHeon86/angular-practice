@@ -1,54 +1,91 @@
 <div class="login-page">
-    <div class="login-wrapper">
+    <div class="login-wrapper" >
+        <form [formGroup]="loginIdPwForm" (ngSubmit)="onSubmit()">
+            <div class="login-main-title">로그인</div>
 
-        <div class="login-main-title">로그인</div>
-
-        <div class="input-wrapper">
-            <div class="input-field">
-                <mat-icon class="opacity-light">account_circle</mat-icon>
-                <input class="input-text" type="text" placeholder="아이디" name="loginId"
-                       spellcheck="false" [formControl]="loginIdForm">
-                <mat-icon class="btn_clear opacity-light pointer">
-                    highlight_off
-                </mat-icon>
+            <div>
+                <!-- 반응형 폼, 템플릿 폼 s: -->
+                <!--        <div class="input-wrapper">-->
+                <!--            <div class="input-field">-->
+                <!--                <mat-icon class="opacity-light">account_circle</mat-icon>-->
+                <!--                <input class="input-text" type="text" placeholder="아이디" name="loginId"-->
+                <!--                       spellcheck="false" [formControl]="loginIdForm">-->
+                <!--                <mat-icon class="btn_clear opacity-light pointer">-->
+                <!--                    highlight_off-->
+                <!--                </mat-icon>-->
+                <!--            </div>-->
+                <!--            <div class="input-field">-->
+                <!--                <mat-icon class="opacity-light">lock</mat-icon>-->
+                <!--                <input class="input-text" type="password" placeholder="비밀번호" name="password"-->
+                <!--                       spellcheck="false" [(ngModel)]="passwordForm">-->
+                <!--                <mat-icon class="btn_clear opacity-light pointer">-->
+                <!--                    highlight_off-->
+                <!--                </mat-icon>-->
+                <!--            </div>-->
+                <!--        </div>-->
+                <!-- 반응형 폼, 템플릿 폼 e: -->
             </div>
-            <div class="input-field">
-                <mat-icon class="opacity-light">lock</mat-icon>
-                <input class="input-text" type="password" placeholder="비밀번호" name="password"
-                       spellcheck="false" [(ngModel)]="passwordForm">
-                <mat-icon class="btn_clear opacity-light pointer">
-                    highlight_off
-                </mat-icon>
+
+            <div class="input-wrapper" >
+                <div class="input-field">
+                    <mat-icon class="opacity-light">account_circle</mat-icon>
+                    <input class="input-text" type="text" placeholder="아이디" name="loginId"
+                           spellcheck="false" formControlName="loginId">
+                    <mat-icon class="btn_clear opacity-light pointer">
+                        highlight_off
+                    </mat-icon>
+                </div>
+                <div class="input-field">
+                    <mat-icon class="opacity-light">lock</mat-icon>
+                    <input class="input-text" type="password" placeholder="비밀번호" name="password"
+                           spellcheck="false" formControlName="password">
+                    <mat-icon class="btn_clear opacity-light pointer">
+                        highlight_off
+                    </mat-icon>
+                </div>
             </div>
-        </div>
+
+            <div formGroupName="address">
+                <h2>Address</h2>
+
+                <label for="street">Street : </label>
+                <input id="street" type="text" formControlName="street">
+                <hr>
+
+                <label for="city">City : </label>
+                <input id="city" type="text" formControlName="city">
+                <hr>
+
+                <label for="state">State : </label>
+                <input id="state" type="text" formControlName="state">
+                <hr>
+
+                <label for="zip">Zip : </label>
+                <input id="zip" type="text" formControlName="zip">
+            </div>
+
+            <div formArrayName="aliases">
+                <h2>Aliases</h2>
+                <button type="button" (click)="addAlias()">Add Alias +</button>
+
+                <div *ngFor="let alias of aliases.controls; let index = index">
+                    <label for="alias-{{index}}">Alias{{index}}</label>
+                    <input id="alias-{{index}}" type="text" [formControlName]="index">
+                </div>
+            </div>
 
 
-        <div class="remember-wrapper">
-            <app-form-checkbox [label]="'아이디 기억하기'"></app-form-checkbox>
-        </div>
+            <div class="remember-wrapper">
+                <app-form-checkbox [label]="'아이디 기억하기'"></app-form-checkbox>
+            </div>
 
-<!--        <ng-container *ngIf="loginId && loginId.invalid && (loginId.dirty || loginId.touched)">-->
-<!--            <div class="msg_alert" *ngIf="loginId.errors?.['required']">-->
-<!--                아이디를 입력해주세요.-->
-<!--            </div>-->
-<!--            <div class="msg_alert" *ngIf="loginId.errors?.['engAndNum']">-->
-<!--                아이디는 영문과 숫자를 조합하여 4~6자리 입력해주세요.-->
-<!--            </div>-->
-<!--        </ng-container>-->
-<!--        <ng-container *ngIf="password && password.invalid && (password.dirty || password.touched)">-->
-<!--            <div class="msg_alert" *ngIf="password.errors?.['required']">-->
-<!--                비밀번호를 입력해주세요.-->
-<!--            </div>-->
-<!--            <div class="msg_alert" *ngIf="password.errors?.['engAndNum']">-->
-<!--                비밀번호는 영문과 숫자를 조합하여 4~6자리 입력해주세요.-->
-<!--            </div>-->
-<!--        </ng-container>-->
+            <button type="submit" class="login-button pointer">로그인</button>
 
-        <button type="submit" class="login-button pointer">로그인</button>
-        <ul class="etc-wrap">
-            <li class="etc-item pointer">비밀번호 찾기</li>
-            <li class="etc-item pointer">아이디 찾기</li>
-            <li class="etc-item pointer">회원가입</li>
-        </ul>
+            <ul class="etc-wrap">
+                <li class="etc-item pointer">비밀번호 찾기</li>
+                <li class="etc-item pointer">아이디 찾기</li>
+                <li class="etc-item pointer">회원가입</li>
+            </ul>
+        </form>
     </div>
 </div>
