@@ -1,5 +1,7 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Inject, OnInit, Output } from '@angular/core';
 import routerUrl from '../../../data/routerUrl';
+import { BUILD_ENV } from '../../../shared/config/build-config';
+import { BuildService } from '../../../service/build.service';
 
 @Component({
     selector: 'app-ui-header',
@@ -23,7 +25,10 @@ export class UiHeaderComponent implements OnInit {
         { title: '로그아웃', icon: 'directions_run' },
         { title: '마이페이지', icon: 'person_pin' },
     ];
-    constructor() {}
+
+    buildType = this.buildService.buildType;
+
+    constructor(private buildService: BuildService) {}
 
     ngOnInit(): void {}
 

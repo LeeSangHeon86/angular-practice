@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { AppCommonModule } from './app-common/app-common.module';
+import { BUILD_ENV } from './shared/config/build-config';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
     declarations: [AppComponent],
@@ -16,7 +18,12 @@ import { AppCommonModule } from './app-common/app-common.module';
         MaterialModule,
         AppCommonModule,
     ],
-    providers: [],
+    providers: [
+        {
+            provide: BUILD_ENV,
+            useValue: environment.buildType,
+        },
+    ],
     bootstrap: [AppComponent],
 })
 export class AppModule {}

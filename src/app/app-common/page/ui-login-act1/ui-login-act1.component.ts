@@ -15,27 +15,6 @@ import {
 export class UiLoginAct1Component implements OnInit {
     /* FormControl 연습용 */
 
-    // // 반응형 폼
-    loginIdForm = new FormControl('');
-    //
-    // // 템플릿 기반 폼
-    // passwordForm = '';
-
-    // loginIdPwForm = new FormGroup({
-    //     loginId: new FormControl('', {
-    //         nonNullable: true,
-    //         validators: Validators.required,
-    //     }),
-    //     password: new FormControl(''),
-    //     address: new FormGroup({
-    //         street: new FormControl(''),
-    //         city: new FormControl(''),
-    //         state: new FormControl(''),
-    //         zip: new FormControl(''),
-    //     }),
-    //     aliases: new FormArray([new FormControl('')]),
-    // });
-
     loginIdPwForm = this.formBuilder.nonNullable.group({
         loginId: ['', [Validators.required]],
         password: [''],
@@ -57,7 +36,6 @@ export class UiLoginAct1Component implements OnInit {
     ngOnInit(): void {}
 
     addAlias(): void {
-        // this.aliases.push(this.formBuilder.control(''));
         this.aliases.push(new FormControl(''));
     }
 
